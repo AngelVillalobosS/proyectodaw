@@ -1,25 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-const alumnoTic={
-    nombre:'Natalia',
-    apodo:'naty',
-    salon: '101'
+const dinero = 300;
+
+const producto1 = {
+  nombre: "Pelotas",
+  costo: 300,
+};
+
+const producto2 = {
+  nombre: "casas",
+  costo: 100,
+};
+
+function mealcanza(money) {
+  if (money >= 300) {
+    return (
+      <h1>
+        Si me alcanza para {producto1.nombre} de {producto1.costo}
+      </h1>
+    );
+  } else {
+    return (
+      <h1>
+        Solo me alcanza para {producto2.nombre} de {producto2.costo}
+      </h1>
+    );
+  }
 }
 
-function informacionAlumno(alumnoTic) {
-    return `Alumno : ${alumnoTic.nombre} de apodo: ${alumnoTic.apodo}`
-}
-
-function salon(alumnoTic){
-  return `${alumnoTic.salon}`
-}
-
-const elemento = <div>Hola {informacionAlumno(alumnoTic)} del salon {salon(alumnoTic)}</div>
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  elemento
+const elemento = (
+  <div>
+    <h1>Mi dinero es de: {dinero}</h1>
+    <div>{mealcanza(dinero)}</div>
+  </div>
 );
-
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(elemento);
