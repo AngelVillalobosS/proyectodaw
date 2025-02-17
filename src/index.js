@@ -2,38 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-const dinero = 300;
-
-const producto1 = {
-  nombre: "Pelotas",
-  costo: 300,
-};
-
-const producto2 = {
-  nombre: "casas",
-  costo: 100,
-};
-
-function mealcanza(money) {
-  if (money >= 300) {
-    return (
-      <h1>
-        Si me alcanza para {producto1.nombre} de {producto1.costo}
-      </h1>
-    );
-  } else {
-    return (
-      <h1>
-        Solo me alcanza para {producto2.nombre} de {producto2.costo}
-      </h1>
-    );
-  }
+const caja={
+  tipo: 'text',
+  ph: 'Teclea Texto',
+  link: 'https://www.google.com',
+  tg: '_blank'
+}
+function muestraCaja(){
+  return <div><input type={caja.tipo} placeholder={caja.ph}></input></div>
 }
 
+function muestraLink(){
+  return <div>
+    <a href={caja.link} target={caja.tg}>Google</a>
+  </div>
+}
 const elemento = (
   <div>
-    <h1>Mi dinero es de: {dinero}</h1>
-    <div>{mealcanza(dinero)}</div>
+  {muestraCaja()}
+  {muestraLink()}
   </div>
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
